@@ -1,0 +1,140 @@
+\documentclass[../Main.tex]{subfiles}
+\begin{document}
+	\section{Quantitative Data Collection}
+	\subsection{World Data}
+	To establish a global context for the UBI landscape and to provide comparative quantitative insights, data on UBIs worldwide will be collected from reputable international reports, surveys, and academic studies. This macro-level data will inform the understanding of general trends, common characteristics, and the overall impact of UBIs globally, serving as a benchmark for the subsequent analysis of Vietnam-specific data.
+	
+	\subsubsection{Prevalence and Scope of University-Based Programs}
+	The landscape of University-Based Incubation Programs (UBIs) globally is dynamic, with UBI Global's World Benchmark Studies providing comprehensive insights into its evolution.
+	
+	The \textbf{2019-2020 UBI Global World Benchmark Study} initially assessed a total of \textbf{1,580 programs}, with \textbf{364 programs} from \textbf{82 countries} retained for its rigorous benchmarking process \cite{ubi2019world}. This study highlighted a significant and widespread presence of business incubation and acceleration initiatives across six global regions. Within this sample, \textbf{41\%} were classified as "World Top University Business Incubators" and \textbf{10\%} as "World Top University Business Accelerators," indicating a substantial representation and high performance of university-linked programs globally \cite{ubi2019world}.
+	
+	\begin{figure}[h]
+		\centering
+		\begin{tikzpicture}[
+			node distance=1cm,
+			box/.style={rectangle, draw, rounded corners, minimum width=2.5cm, minimum height=1cm, align=center, font=\small},
+			arrow/.style={->, thick},
+			percentage/.style={rectangle, draw, fill=blue!20, rounded corners, minimum width=3cm, align=center, font=\small, text width=3cm}
+		]
+		
+		% Nodes
+		\node[box, fill=green!20] (initial) {Initial Assessment\\1,580 programs\\82 countries};
+		
+		\node[box, fill=yellow!20, right=2.5cm of initial] (filter) {Rigorous Benchmarking\\Process};
+		
+		\node[box, fill=orange!20, right=2.5cm of filter] (final) {Final Sample\\364 programs\\82 countries};
+		
+		\node[percentage, above left=1cm and -0.5cm of final] (incubators) {\textbf{41\%}\\World Top University Business Incubators};
+		
+		\node[percentage, above right=1cm and -0.5cm of final] (accelerators) {\textbf{10\%}\\World Top University Business Accelerators};
+		
+		\node[percentage, below=1cm of final] (others) {\textbf{49\%}\\Other Programs};
+		
+		% Arrows and Labels
+		\draw[arrow] (initial) -- (filter) node[midway, above, font=\tiny] {Selection Process};
+		\draw[arrow] (filter) -- (final) node[midway, above, font=\tiny] {Classification Results};
+		\draw[arrow] (final.north) -- (incubators.south);
+		\draw[arrow] (final.north) -- (accelerators.south);
+		\draw[arrow] (final.south) -- (others.north);
+		
+		\end{tikzpicture}
+		\caption{UBI Global 2019-2020 World Benchmark Study: Assessment Flow and Classification Results (Source: Adapted from \cite{ubi2019world})}
+		\label{fig:ubi_benchmark_flow}
+	\end{figure}
+	
+	The subsequent \textbf{2021-2022 UBI Global World Benchmark Study} shows a shift in the study's scope, reflecting a more focused assessment. This later study included \textbf{109 business incubators and accelerators} located in \textbf{56 countries} \cite{ubi2021world}.
+	
+	\textbf{Change Tendency (2019-2020 to 2021-2022)}:
+	A clear change tendency between these two periods is the significant reduction in the number of programs and countries included in UBI Global's benchmark studies. The number of assessed programs decreased from 364 to 109, and the number of represented countries dropped from 82 to 56. This suggests either a more stringent selection process, a focus on top-tier programs, or changes in participation rates in the latter study. Despite this shift in scale, the fundamental classification of programs into Business Incubators and Business Accelerators, with distinctions for University, Public, and Private entities, remained consistent \cite{ubi2019world, ubi2021world}. The 2021-2022 report also notes that Public and Private programs, including Corporate ones, were jointly ranked due to their sample composition \cite{ubi2021world}.
+	
+	\begin{figure}[h]
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}[
+				title={Change in UBI Global Benchmark Scope},
+				xlabel={Benchmark Period},
+				xtick=data,
+				xticklabels={2019-2020, 2021-2022},
+				ylabel={Number of Programs},
+				axis y line*=left,
+				ymajorgrids=true,
+				ymin=0,
+				legend pos=upper right,
+			]
+			\addplot[color=blue, mark=square*] coordinates {(0,364) (1,109)};
+			\addlegendentry{Assessed Programs}
+			\end{axis}
+			
+			\begin{axis}[
+				axis y line*=right,
+				axis x line=none,
+				ylabel={Number of Countries},
+				ymin=0,
+			]
+			\addplot[color=red, mark=triangle*] coordinates {(0,82) (1,56)};
+			\addlegendentry{Represented Countries}
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Decrease in the number of programs and countries in UBI Global's benchmark studies between 2019-2020 and 2021-2022.}
+		\label{fig:ubi_change_tendency}
+	\end{figure}
+	
+	\subsubsection{Key Performance Indicators (KPIs) and Impact Measurement Framework}
+	UBI Global's comprehensive methodology for assessing program impact and performance consistently utilizes \textbf{21 Key Performance Indicators (KPIs)} across both the 2019-2020 and 2021-2022 benchmark studies \cite{ubi2019world, ubi2021world}. These KPIs are systematically grouped into three main categories, each contributing to a Program Impact and Performance Score (PIPS). All fiscal information is standardized to 2018 US dollars in the 2019-2020 report and likely similar in the 2021-2022 report for consistency.
+	
+	\begin{itemize}
+		\item \textbf{Value for Ecosystem (33.3\% weight of PIPS)}: This category assesses the economic impact of the programs and their client/alumni startups, as well as their success in retaining human capital and ventures within the innovation ecosystem. It includes subcategories like "Economy Enhancement" and "Talent Retention" \cite{ubi2019world, ubi2021world}.
+		\begin{itemize}
+			\item \textit{Economy Enhancement} (22.2\% of PIPS) measures: Jobs created \& sustained, Sales revenue, Graduates (within 5 years), and Self-generated revenue.
+			\item \textit{Talent Retention} (11.1\% of PIPS) measures: Client startups accepted (within 1 year) and Graduate retention (within 5 years).
+		\end{itemize}
+		\item \textbf{Value for Client Startups (33.3\% weight of PIPS)}: This category evaluates the quantity and efficiency of services provided by the programs, alongside their critical function as facilitators of community and network building. It comprises subcategories such as "Competence Development," "Access to Funds," and "Access to Network" \cite{ubi2019world, ubi2021world}.
+		\begin{itemize}
+			\item \textit{Competence Development} (8.9\% of PIPS) measures: Services offered and Coaching \& mentoring hours.
+			\item \textit{Access to Funds} (11.1\% of PIPS) measures: Total investment attracted (within 5 years), Average investment attracted (within 5 years), and Seed funding attraction (within 1 year).
+			\item \textit{Access to Network} (13.3\% of PIPS) measures: Partners, Events, and Alumni engagement.
+		\end{itemize}
+		\item \textbf{Value for Program (33.3\% weight of PIPS)}: This category assesses the program's success in attracting deal flow and third-party support, as well as its capacity to foster the creation of viable companies. It includes "Program Attractiveness" and "Post-Graduation Performance" subcategories \cite{ubi2019world, ubi2021world}.
+		\begin{itemize}
+			\item \textit{Program Attractiveness} (15.5\% of PIPS) measures: In-state applications, Out-of-state applications, and Sponsorship attraction.
+			\item \textit{Post-Graduation Performance} (17.8\% of PIPS) measures: 1-year survival rate (within 10 years), 5-year survival rate (within 10 years), High-growth enterprises (within 10 years), and Qualified exits (within 10 years).
+		\end{itemize}
+	\end{itemize}
+	While these reports detail the comprehensive KPIs utilized for benchmarking and ranking, they focus on the comparative performance of individual programs rather than providing aggregate global numerical data for the entire sample's performance across all these metrics.
+	
+	\subsubsection{Leading University Business Incubators Globally}
+	UBI Global's World Rankings consistently recognize top-performing university business incubators based on their outstanding impact and value creation.
+	
+	\textbf{2019-2020 Leading University Business Incubators (Alphabetical, Sample)} \cite{ubi2019world}:
+	\begin{itemize}
+		\item Chalmers Ventures (Chalmers University of Technology, Sweden)
+		\item The DMZ at Ryerson University (Ryerson University, Canada)
+		\item IPN Incubadora (University of Coimbra, Polytechnic Institute of Coimbra, Portugal)
+		\item İTÜ Çekirdek (Istanbul Technical University, Turkey)
+		\item PoliHub - Innovation District \& Startup Accelerator (Politecnico di Milano, Italy)
+		\item The SETsquared Partnership (University of Bath, Bristol, Exeter, Southampton, Surrey, UK)
+		\item University of Toronto Entrepreneurship (University of Toronto, Canada)
+		\item UtrechtInc (Utrecht University, Medical Center Utrecht, University of Applied Sciences Utrecht, Netherlands)
+		\item YES!Delft (Delft University of Technology, The Hague University of Applied Sciences, Netherlands)
+	\end{itemize}
+	
+	\textbf{2021-2022 Leading University Business Incubators (Alphabetical, Sample)} \cite{ubi2021world}:
+	\begin{itemize}
+		\item Center for Technology Development (CDT) (University of Brasilia, Brazil)
+		\item CEI UCN (Universidad Catolica del Norte, Chile)
+		\item EUREKA (University of Chile, Chile)
+		\item Innovation, Business, and Economy Center (CIE) (Autonomous University of Baja California, Mexico)
+		\item King Abdullah University of Science and Technology (KAUST) (King Abdullah University of Science and Technology, Saudi Arabia)
+		\item MCB (Federal University of Campina Grande, Brazil)
+		\item The DMZ at Toronto Metropolitan University (Toronto Metropolitan University, Canada)
+		\item University of Toronto Entrepreneurship (University of Toronto, Canada)
+		\item UtrechtInc (Utrecht University, Medical Center Utrecht, University of Applied Sciences Utrecht, HKU University of the Arts Utrecht, Netherlands)
+		\item YTU Yıldız Technopark Entrepreneurship and Incubation Center (YTU Startup House) (Yıldız Technical University, Turkey)
+	\end{itemize}
+	These examples illustrate the continued global reach and diverse institutional affiliations of leading UBIs across different reporting periods.
+	
+	\subsection{Vietnam Data}
+	\section{Qualitative Data Collection}
+	\subsection{Interview}
+\end{document}

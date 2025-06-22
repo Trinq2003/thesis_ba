@@ -1,0 +1,398 @@
+\documentclass[a4paper,13pt,twoside]{extreport}
+\usepackage[utf8]{vietnam}
+\usepackage[top=2cm, bottom=2cm, left=3.5cm, right=2.5cm]{geometry}
+
+\usepackage{graphicx} % Cho phép chèn hỉnh ảnh
+\usepackage{fancybox} % Tạo khung box
+\usepackage{indentfirst} % Thụt đầu dòng ở dòng đầu tiên trong đoạn
+\usepackage{amsthm} % Cho phép thêm các môi trường định nghĩa
+\usepackage{latexsym} % Các kí hiệu toán học
+\usepackage{amsmath} % Hỗ trợ một số biểu thức toán học
+\DeclareMathOperator*{\argmax}{arg\,max}
+\usepackage{amssymb} % Bổ sung thêm kí hiệu về toán học
+\usepackage{amsbsy} % Hỗ trợ các kí hiệu in đậm
+\usepackage{times} % Chọn font Time New Romans
+\usepackage{array} % Tạo bảng array
+\usepackage{enumitem} % Cho phép thay đổi kí hiệu của list
+\usepackage{subfiles} % Chèn các file nhỏ, giúp chia các chapter ra nhiều file hơn
+\usepackage{titlesec} % Giúp chỉnh sửa các tiêu đề, đề mục như chương, phần,..
+\usepackage{titletoc}
+\usepackage{chngcntr} % Dùng để thiết lập lại cách đánh số caption,..
+\usepackage{pdflscape} % Đưa các bảng có kích thước đặt theo chiều ngang giấy
+\usepackage{afterpage}
+\usepackage[ruled,vlined]{algorithm2e}  % Hỗ trợ viết các giải thuật
+\usepackage{capt-of} % Cho phép sử dụng caption lớn đối với landscape page
+\usepackage{multirow} % Merge cells
+\usepackage{fancyhdr} % Cho phép tùy biến header và footer
+% \usepackage[natbib,backend=biber,style=ieee]{biblatex} % Giúp chèn tài liệu tham khảo
+\usepackage{appendix}
+\usepackage{outlines}
+\usepackage[font=small,labelfont=bf]{caption}
+
+\usepackage{listings}
+\usepackage{inconsolata}  % For code font
+\usepackage{pythonhighlight}
+
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{xurl}
+
+\usepackage[nonumberlist, nopostdot, nogroupskip, acronym]{glossaries}
+\usepackage{glossary-superragged}
+\setglossarystyle{superraggedheaderborder}
+\usepackage{setspace}
+\usepackage{parskip}
+
+% package content table
+\usepackage{tocbasic}
+
+\usepackage{blindtext}
+
+% Add tcolorbox package for shaded boxes
+\usepackage[most]{tcolorbox}
+
+% Add packages for flowchart
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,calc}
+
+% Define a reusable shaded box style
+\newtcolorbox{condensed_idea}[1][]{
+    enhanced,
+    colback=gray!5,
+    colframe=gray!50,
+    arc=0mm,
+    boxrule=0.5pt,
+    leftrule=3pt,
+    left=10pt,
+    right=10pt,
+    top=10pt,
+    bottom=10pt,
+    title=#1,
+    coltitle=black,
+    fonttitle=\bfseries
+}
+
+% Define HTML language for code highlighting
+% CSS
+\usepackage{color}
+\definecolor{lightgray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{darkgray}{rgb}{0.4, 0.4, 0.4}
+%\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+\definecolor{editorGray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{editorOcher}{rgb}{1, 0.5, 0} % #FF7F00 -> rgb(239, 169, 0)
+\definecolor{editorGreen}{rgb}{0, 0.5, 0} % #007C00 -> rgb(0, 124, 0)
+\definecolor{orange}{rgb}{1,0.45,0.13}		
+\definecolor{olive}{rgb}{0.17,0.59,0.20}
+\definecolor{brown}{rgb}{0.69,0.31,0.31}
+\definecolor{purple}{rgb}{0.38,0.18,0.81}
+\definecolor{lightblue}{rgb}{0.1,0.57,0.7}
+\definecolor{lightred}{rgb}{1,0.4,0.5}
+\usepackage{upquote}
+
+% ===================================================
+
+\renewcommand{\bibname}{reference} 
+\usepackage[backend=bibtex,style=ieee]{biblatex}  %backend=biber is 'better'
+
+\renewcommand\appendixname{APPENDIX}
+\renewcommand\appendixpagename{APPENDIX}
+\renewcommand\appendixtocname{APPENDIX}
+
+\renewcommand{\figurename}{Figure}
+\renewcommand{\tablename}{Table}
+\renewcommand{\chaptername}{CHAPTER}
+
+\addbibresource{reference.bib} % chèn file chứa danh mục tài liệu tham khảo vào 
+
+\include{lstlisting} % Phần này cho phép chèn code và formatting code như C, C++, Python
+
+\input{glossary}
+
+% ===================================================
+
+
+\fancypagestyle{plain}{%
+\fancyhf{} % clear all header and footer fields
+\fancyfoot[RO,RE]{\thepage} %RO=right odd, RE=right even
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}}
+
+\setlength{\headheight}{10pt}
+
+\def \TITLE{GRADUATION THESIS}
+\def \AUTHOR{NGUYEN DOAN ABC}
+
+% ===================================================
+\titleformat{\chapter}[hang]{\centering\bfseries}{CHƯƠNG \thechapter.\ }{0pt}{}[]
+
+\titleformat 
+    {\chapter} % command
+    [hang] % shape
+    {\centering\bfseries} % format
+    {CHAPTER \thechapter.\ } % label
+    {0pt} %sep
+    {} % before
+    [] % after
+\titlespacing*{\chapter}{0pt}{-20pt}{20pt}
+
+\titleformat
+    {\section} % command
+    [hang] % shape
+    {\bfseries} % format
+    {\thechapter.\arabic{section}\ \ \ \ } % label
+    {0pt} %sep
+    {} % before
+    [] % after
+\titlespacing{\section}{0pt}{\parskip}{0.5\parskip}
+
+\titleformat
+    {\subsection} % command
+    [hang] % shape
+    {\bfseries} % format
+    {\thechapter.\arabic{section}.\arabic{subsection}\ \ \ \ } % label
+    {0pt} %sep
+    {} % before
+    [] % after
+\titlespacing{\subsection}{0pt}{\parskip}{0.5\parskip}
+
+\titleformat
+    {\subsubsection} % command
+    [hang] % shape
+    {\bfseries} % format
+    {\thechapter.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}\ \ \ \ } % label
+    {0pt} %sep
+    {} % before
+    [] % after
+\titlespacing{\subsubsection}{0pt}{\parskip}{0.5\parskip}
+
+% \newcommand{\titlesize}{\fontsize{18pt}{23pt}\selectfont}
+% \newcommand{\subtitlesize}{\fontsize{16pt}{21pt}\selectfont}
+% \titleclass{\part}{top}
+% \titleformat{\part}[display]
+%   {\normalfont\huge\bfseries}{\centering}{20pt}{\Huge\centering}
+% \titlespacing{\part}{0pt}{em}{1em}
+% \titlespacing{\section}{0pt}{\parskip}{0.5\parskip}
+% \titlespacing{\subsection}{0pt}{\parskip}{0.5\parskip}
+% \titlespacing{\subsubsection}{0pt}{\parskip}{0.5\parskip}
+
+
+
+% ===================================================
+\usepackage{hyperref}
+\hypersetup{pdfborder = {0 0 0}} %
+\hypersetup{pdftitle={\TITLE},
+	pdfauthor={\AUTHOR}}
+	
+\usepackage[all]{hypcap} % Cho phép tham chiếu chính xác đến hình ảnh và bảng biểu
+
+\graphicspath{{figures/}{../figures/}} % Thư mục chứa các hình ảnh
+
+\counterwithin{figure}{chapter} % Đánh số hình ảnh kèm theo chapter. Ví dụ: Hình 1.1, 1.2,..
+
+\title{\bf \TITLE}
+\author{\AUTHOR}
+
+\setcounter{secnumdepth}{3} % Cho phép subsubsection trong report
+% \setcounter{tocdepth}{3} % Chèn subsubsection vào bảng mục lục
+
+\theoremstyle{definition}
+\newtheorem{example}{Ví dụ}[chapter] % Định nghĩa môi trường ví dụ
+
+\onehalfspacing
+%Khoảng cách xuống dòng
+\setlength{\parskip}{6pt}
+%Lùi đầu dòng
+\setlength{\parindent}{15pt}
+
+
+
+% =========================== BODY ===============
+\begin{document}
+% \newgeometry{top=2cm, bottom=2cm, left=2cm, right=2cm}
+\subfile{cover} % Phần bìa
+% \restoregeometry
+
+% ===================================================
+\pagenumbering{roman}
+\renewcommand{\figurename}{Figure}
+\renewcommand{\tablename}{Table}
+\renewcommand{\chaptername}{CHAPTER}
+% \pagestyle{empty} % Header và footer rỗng
+%\newpage
+%\subfile{chapters/0_1_subject.tex}
+
+\newpage
+\subfile{Chapter/0_2_acknowledgment.tex}
+
+\newpage
+\subfile{Chapter/0_3_abstract.tex}
+
+% ===================================================
+% \pagestyle{empty} % Header và footer rỗng
+\newpage
+\pagenumbering{roman} % Xóa page numbering ở cuối trang
+\renewcommand*\contentsname{TABLE OF CONTENT}
+
+\titlecontents{chapter}
+[0.0cm]             % left margin
+{\bfseries\vspace{0.3cm}}                  % above code
+{{\bfseries{\scshape}
+			CHAPTER \thecontentslabel.\ }}
+% numbered format
+{}         % unnumbered format
+{\titlerule*[0.3pc]{.}\contentspage}         % filler-page-format, e.g dots
+
+
+\titlecontents{section}
+[0.0cm]             % left margin
+{\vspace{0.3cm}}                  % above code
+{\thecontentslabel \ } % numbered format
+{}         % unnumbered format
+{\titlerule*[0.3pc]{.}\contentspage}         % filler-page-format, e.g dots
+
+\titlecontents{subsection}
+[0.5cm]             % left margin
+{\vspace{0.3cm}}                  % above code
+{\thecontentslabel \ } % numbered format
+{}         % unnumbered format
+{\titlerule*[0.3pc]{.}\contentspage}         % filler-page-format, e.g dots
+
+% \titlecontents{subsubsection}
+% [1.0cm]             % left margin
+% {\vspace{0.3cm}}                  % above code
+% {\thecontentslabel \ } % numbered format
+% {}         % unnumbered format
+% {\titlerule*[0.3pc]{.}\contentspage}         % filler-page-format, e.g dots
+
+% Tạo mục lục tự động
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\tableofcontents
+\thispagestyle{empty}
+\cleardoublepage
+
+% \pagenumbering{roman}
+%Tạo danh mục hình vẽ.
+\renewcommand{\listfigurename}{LIST OF FIGURES}
+{\let\oldnumberline\numberline
+	\renewcommand{\numberline}{Figure~\oldnumberline}
+	\listoffigures}
+% \phantomsection\addcontentsline{toc}{section}{\numberline {} DANH MỤC HÌNH VẼ}
+\newpage
+
+
+%Tạo danh mục bảng biểu.
+\renewcommand{\listtablename}{LIST OF TABLES}
+{\let\oldnumberline\numberline
+	\renewcommand{\numberline}{Table~\oldnumberline}
+	\listoftables}
+% \phantomsection\addcontentsline{toc}{section}{\numberline {} DANH MỤC BẢNG BIỂU}
+
+\glsaddall
+% \renewcommand*{\glossaryname}{Danh sách thuật ngữ}
+\renewcommand*{\acronymname}{LIST OF ABBREVIATIONS}
+\renewcommand*{\entryname}{Abriviation}
+\renewcommand*{\descriptionname}{Full Expression}
+% \printnoidxglossaries
+% \phantomsection\addcontentsline{toc}{section}{\numberline {} DANH MỤC THUẬT NGỮ VÀ TỪ VIẾT TẮT}
+\subfile{Chapter/0_5_Danh_muc_viet_tat.tex}
+
+% \newpage
+% \subfile{Chapter/0_6_Thuat_ngu.tex}
+% ===================================================
+
+
+\newpage
+\pagenumbering{arabic}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RE, LO]{\leftmark}
+%\fancyhead[LE]{\rightmark}
+\fancyfoot[RE, LO]{\thepage}
+
+\chapter{PREFACE}
+\label{chapter:Preface}
+\subfile{Chapter/1_Preface}
+
+\newpage
+\pagestyle{fancy}
+\chapter{LITERATURE REVIEW}
+\label{chapter:Literature_review}
+\subfile{Chapter/2_Literature_review}
+
+\newpage
+\pagestyle{fancy}
+\chapter{DATA COLLECTION, RESEARCH AND SURVEY}
+\label{chapter:Data_collection_research_and_survey}
+\subfile{Chapter/3_Data_collection_research_and_survey}
+
+% \newpage
+% \pagestyle{fancy}
+% \chapter{RESEARCH MODEL \& HYPOTHESIS DEVELOPMENT}
+% \label{chapter:Research_model_and_hypothesis_development}
+% \subfile{Chapter/5_Research_model_and_hypothesis_development}
+
+% \newpage
+% \pagestyle{fancy}
+% \chapter{ACHIEVED RESULTS}
+% \label{chapter:Achieved_results}
+% \subfile{Chapter/6_Achieved_results}
+
+\newpage
+\pagestyle{fancy}
+\chapter{CONTRIBUTION, CONCLUSION AND FUTURE WORK}
+\label{chapter:Contribution_conclusion_and_future_work}
+% \subfile{Chapter/7_Contribution_conclusion_and_future_work}
+
+
+% ===================================================
+\newpage
+\renewcommand\bibname{REFERENCE}
+\label{chapter:Reference}
+\printbibliography
+\phantomsection\addcontentsline{toc}{chapter}{REFERENCE}
+
+\appendixpage
+\appendices
+\addappheadtotoc
+\renewcommand{\figurename}{Figure}
+\renewcommand{\tablename}{Table}
+\renewcommand{\chaptername}{CHAPTER}
+
+% \chapter*{PHỤ LỤC}
+
+%\mainmatter
+\titleformat{\chapter}[hang]{\centering\bfseries}{ \thechapter.\ }{0pt}{}[]
+\titlespacing*{\chapter}{0pt}{-20pt}{20pt}
+
+\titlecontents{chapter}
+[0.0cm]             % left margin
+{\bfseries\vspace{0.3cm}}                  % above code
+{{\bfseries{\scshape} \thecontentslabel.\ }} % numbered format
+{}         % unnumbered format
+{\titlerule*[0.3pc]{.}\contentspage}         % filler-page-format, e.g dots
+% \chapter{DETAILED IMPLEMENTATION OF AGENTIC WORKFLOW FRAMEWORK}
+% \label{appendix:a_agentic_workflow_framework}
+% \subfile{Chapter/Appendix/Appendix_A}
+% \newpage
+
+% \chapter{DETAILED IMPLEMENTATION OF OPENEDX BACKEND}
+% \label{appendix:b_openedx_backend}
+% \subfile{Chapter/Appendix/Appendix_B}
+% \newpage
+
+% \chapter{DETAILED IMPLEMENTATION OF ELEARNING FRONTEND}
+% \label{appendix:c_elearning_frontend}
+% \subfile{Chapter/Appendix/Appendix_C}
+% \newpage
+
+% \chapter{DETAILED IMPLEMENTATION OF DEVELOPER TOOL}
+% \label{appendix:d_developer_tool}
+% \subfile{Chapter/Appendix/Appendix_D}
+% \newpage
+
+% \chapter{DETAILED IMPLEMENTATION OF UI COMPONENTS}
+% \label{appendix:e_ui_components}
+% \subfile{Chapter/Appendix/Appendix_E}
+% \newpage
+\end{document}

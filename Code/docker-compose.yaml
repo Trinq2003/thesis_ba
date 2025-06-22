@@ -1,0 +1,25 @@
+include:
+  - ./docker-compose-base.yml
+services:
+  ragflow:
+    depends_on:
+      mysql:
+        condition: service_healthy
+    image: ${RAGFLOW_IMAGE}
+    container_name: ragflow-server
+    ports:
+      - ${SVR_HTTP_PORT}:9380
+      - 8000:80
+      - 443:443
+    volumes:
+      - /mnt/.conda/envs/trinq_ragflow/lib/python3.10/site-packages:/ragflow/.venv/lib/python3.10/site-packages
+    env_file: .env
+    environment:
+      - TZ=${TIMEZONE}
+      - HF_ENDPOINT=${HF_ENDPOINT}
+      - MACOS=${MACOS}
+    networks:
+      - ragflow
+    restart: on-failure
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

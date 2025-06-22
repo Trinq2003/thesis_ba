@@ -1,0 +1,30 @@
+<aside className="h-full w-[340px]">
+  <div className="flex items-center">
+    <SidebarIcon icon={Settings} label="Settings"/>
+    <SidebarIcon icon={Plus} label="New chat"/>
+    <SidebarIcon icon={Clock} label="Chat history"/>
+    <SidebarIcon icon={MoreHorizontal} label="More actions"/>
+    <SidebarIcon icon={X} label="Close" onClick={()=> { setVisible(false); onClose?.(); }}/>
+  </div>
+  <div className="px-4 py-2 text-xs">
+    <span className="text-base text-zinc-300 mr-1">@</span>
+    <span className="truncate">{context}</span>
+  </div>
+  <div className="p-3 border-t border-zinc-800 bg-zinc-900">
+    <textarea className="w-full rounded-md" placeholder="Type message" value={input}/>
+    <div className="flex items-center justify-between gap-2">
+      <div className="flex items-center gap-2">
+        <Dropdown label={chatType} open={showChatType}/>
+        <Dropdown label={model} open={showModel}/>
+      </div>
+      <div className="flex items-center gap-2">
+        <button className="p-2 rounded-md" title="Attach image" onClick={()=> {/* attach logic */ }}>
+          <ImageIcon className="size-5" />
+        </button>
+        <button className="p-2 rounded-md bg-zinc" title="Send" onClick={()=> {/* send logic */ }}>
+          <Send className="size-5" />
+        </button>
+      </div>
+    </div>
+  </div>
+</aside>
