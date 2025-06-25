@@ -53,7 +53,10 @@
 
 % Add packages for flowchart
 \usepackage{tikz}
-\usetikzlibrary{shapes,arrows,positioning,calc}
+\usetikzlibrary{shapes,arrows,positioning,calc,arrows.meta}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{csquotes}
 
 % Define a reusable shaded box style
 \newtcolorbox{condensed_idea}[1][]{
@@ -326,11 +329,11 @@
 \label{chapter:Data_collection_research_and_survey}
 \subfile{Chapter/3_Data_collection_research_and_survey}
 
-% \newpage
-% \pagestyle{fancy}
-% \chapter{RESEARCH MODEL \& HYPOTHESIS DEVELOPMENT}
-% \label{chapter:Research_model_and_hypothesis_development}
-% \subfile{Chapter/5_Research_model_and_hypothesis_development}
+\newpage
+\pagestyle{fancy}
+\chapter{RESEARCH MODEL \& HYPOTHESIS DEVELOPMENT}
+\label{chapter:Research_model_and_hypothesis_development}
+\subfile{Chapter/4_Research_model_and_hypothesis_development}
 
 % \newpage
 % \pagestyle{fancy}

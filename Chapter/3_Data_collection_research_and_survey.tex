@@ -1,10 +1,9 @@
 \documentclass[../Main.tex]{subfiles}
 \begin{document}
-	\section{Quantitative Data Collection}
-	\subsection{World Data}
+	\section{World UBIs Quantitative Data}
 	To establish a global context for the UBI landscape and to provide comparative quantitative insights, data on UBIs worldwide will be collected from reputable international reports, surveys, and academic studies. This macro-level data will inform the understanding of general trends, common characteristics, and the overall impact of UBIs globally, serving as a benchmark for the subsequent analysis of Vietnam-specific data.
 	
-	\subsubsection{Prevalence and Scope of University-Based Programs}
+	\subsection{Prevalence and Scope of University-Based Programs}
 	The landscape of University-Based Incubation Programs (UBIs) globally is dynamic, with UBI Global's World Benchmark Studies providing comprehensive insights into its evolution.
 	
 	The \textbf{2019-2020 UBI Global World Benchmark Study} initially assessed a total of \textbf{1,580 programs}, with \textbf{364 programs} from \textbf{82 countries} retained for its rigorous benchmarking process \cite{ubi2019world}. This study highlighted a significant and widespread presence of business incubation and acceleration initiatives across six global regions. Within this sample, \textbf{41\%} were classified as "World Top University Business Incubators" and \textbf{10\%} as "World Top University Business Accelerators," indicating a substantial representation and high performance of university-linked programs globally \cite{ubi2019world}.
@@ -52,37 +51,34 @@
 		\centering
 		\begin{tikzpicture}
 			\begin{axis}[
-				title={Change in UBI Global Benchmark Scope},
-				xlabel={Benchmark Period},
-				xtick=data,
-				xticklabels={2019-2020, 2021-2022},
+				title={UBI Global Benchmark Scope Change},
+				xlabel={Number of Countries},
 				ylabel={Number of Programs},
-				axis y line*=left,
 				ymajorgrids=true,
-				ymin=0,
-				legend pos=upper right,
+				xmajorgrids=true,
+				grid style=dashed,
+				x dir=reverse, % Show progression from older (right) to newer (left) data
 			]
-			\addplot[color=blue, mark=square*] coordinates {(0,364) (1,109)};
-			\addlegendentry{Assessed Programs}
-			\end{axis}
 			
-			\begin{axis}[
-				axis y line*=right,
-				axis x line=none,
-				ylabel={Number of Countries},
-				ymin=0,
-			]
-			\addplot[color=red, mark=triangle*] coordinates {(0,82) (1,56)};
-			\addlegendentry{Represented Countries}
+			% Add the plot with a connecting line
+			\addplot[color=blue, mark=*, thick] coordinates {
+				(82,364) 
+				(56,109)
+			};
+			
+			% Add labels to the points using relative positioning
+			\node[right, font=\small, xshift=2pt] at (axis cs:82,364) {2019-2020};
+			\node[left, font=\small, xshift=-2pt] at (axis cs:56,109) {2021-2022};
+			
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Decrease in the number of programs and countries in UBI Global's benchmark studies between 2019-2020 and 2021-2022.}
+		\caption{Change in scope of UBI Global's benchmark studies, plotting programs vs. countries for the 2019-2020 and 2021-2022 periods.}
 		\label{fig:ubi_change_tendency}
 	\end{figure}
 	
-	\subsubsection{Key Performance Indicators (KPIs) and Impact Measurement Framework}
+	\subsection{Key Performance Indicators (KPIs) and Impact Measurement Framework}
 	UBI Global's comprehensive methodology for assessing program impact and performance consistently utilizes \textbf{21 Key Performance Indicators (KPIs)} across both the 2019-2020 and 2021-2022 benchmark studies \cite{ubi2019world, ubi2021world}. These KPIs are systematically grouped into three main categories, each contributing to a Program Impact and Performance Score (PIPS). All fiscal information is standardized to 2018 US dollars in the 2019-2020 report and likely similar in the 2021-2022 report for consistency.
-	
+
 	\begin{itemize}
 		\item \textbf{Value for Ecosystem (33.3\% weight of PIPS)}: This category assesses the economic impact of the programs and their client/alumni startups, as well as their success in retaining human capital and ventures within the innovation ecosystem. It includes subcategories like "Economy Enhancement" and "Talent Retention" \cite{ubi2019world, ubi2021world}.
 		\begin{itemize}
@@ -103,38 +99,76 @@
 	\end{itemize}
 	While these reports detail the comprehensive KPIs utilized for benchmarking and ranking, they focus on the comparative performance of individual programs rather than providing aggregate global numerical data for the entire sample's performance across all these metrics.
 	
-	\subsubsection{Leading University Business Incubators Globally}
-	UBI Global's World Rankings consistently recognize top-performing university business incubators based on their outstanding impact and value creation.
+	\subsection{Leading University Business Incubators Globally}
+	UBI Global's World Rankings consistently recognize top-performing university business incubators based on their outstanding impact and value creation. The following tables show a sample of these leading incubators for the two benchmark periods.
+
+	\begin{table}[H]
+		\centering
+		\caption{Leading University Business Incubators (2019-2020 Sample) \cite{ubi2019world}}
+		\label{tab:leading_ubis_2019}
+		\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|l|l|}
+			\hline
+			\textbf{Incubator} & \textbf{University} & \textbf{Country} \\
+			\hline
+			Chalmers Ventures & Chalmers University of Technology & Sweden \\
+			The DMZ at Ryerson University & Ryerson University & Canada \\
+			IPN Incubadora & University of Coimbra, Polytechnic Institute of Coimbra & Portugal \\
+			PoliHub - Innovation District \& Startup Accelerator & Politecnico di Milano & Italy \\
+			The SETsquared Partnership & Univ. of Bath, Bristol, Exeter, Southampton, Surrey & UK \\
+			University of Toronto Entrepreneurship & University of Toronto & Canada \\
+			UtrechtInc & Utrecht University, Medical Center Utrecht, UAS Utrecht & Netherlands \\
+			YES!Delft & Delft University of Technology, The Hague UAS & Netherlands \\
+			\hline
+		\end{tabular}%
+		}
+	\end{table}
+
+	\begin{table}[H]
+		\centering
+		\caption{Leading University Business Incubators (2021-2022 Sample) \cite{ubi2021world}}
+		\label{tab:leading_ubis_2021}
+		\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|l|l|}
+			\hline
+			\textbf{Incubator} & \textbf{University} & \textbf{Country} \\
+			\hline
+			Center for Technology Development (CDT) & University of Brasilia & Brazil \\
+			CEI UCN & Universidad Catolica del Norte & Chile \\
+			EUREKA & University of Chile & Chile \\
+			Innovation, Business, and Economy Center (CIE) & Autonomous University of Baja California & Mexico \\
+			King Abdullah University of Science and Technology & King Abdullah University of Science and Technology & Saudi Arabia \\
+			MCB & Federal University of Campina Grande & Brazil \\
+			The DMZ at Toronto Metropolitan University & Toronto Metropolitan University & Canada \\
+			University of Toronto Entrepreneurship & University of Toronto & Canada \\
+			UtrechtInc & Utrecht Univ., Medical Center Utrecht, UAS Utrecht, HKU Arts & Netherlands \\
+			\hline
+		\end{tabular}%
+		}
+	\end{table}
 	
-	\textbf{2019-2020 Leading University Business Incubators (Alphabetical, Sample)} \cite{ubi2019world}:
-	\begin{itemize}
-		\item Chalmers Ventures (Chalmers University of Technology, Sweden)
-		\item The DMZ at Ryerson University (Ryerson University, Canada)
-		\item IPN Incubadora (University of Coimbra, Polytechnic Institute of Coimbra, Portugal)
-		\item İTÜ Çekirdek (Istanbul Technical University, Turkey)
-		\item PoliHub - Innovation District \& Startup Accelerator (Politecnico di Milano, Italy)
-		\item The SETsquared Partnership (University of Bath, Bristol, Exeter, Southampton, Surrey, UK)
-		\item University of Toronto Entrepreneurship (University of Toronto, Canada)
-		\item UtrechtInc (Utrecht University, Medical Center Utrecht, University of Applied Sciences Utrecht, Netherlands)
-		\item YES!Delft (Delft University of Technology, The Hague University of Applied Sciences, Netherlands)
-	\end{itemize}
-	
-	\textbf{2021-2022 Leading University Business Incubators (Alphabetical, Sample)} \cite{ubi2021world}:
-	\begin{itemize}
-		\item Center for Technology Development (CDT) (University of Brasilia, Brazil)
-		\item CEI UCN (Universidad Catolica del Norte, Chile)
-		\item EUREKA (University of Chile, Chile)
-		\item Innovation, Business, and Economy Center (CIE) (Autonomous University of Baja California, Mexico)
-		\item King Abdullah University of Science and Technology (KAUST) (King Abdullah University of Science and Technology, Saudi Arabia)
-		\item MCB (Federal University of Campina Grande, Brazil)
-		\item The DMZ at Toronto Metropolitan University (Toronto Metropolitan University, Canada)
-		\item University of Toronto Entrepreneurship (University of Toronto, Canada)
-		\item UtrechtInc (Utrecht University, Medical Center Utrecht, University of Applied Sciences Utrecht, HKU University of the Arts Utrecht, Netherlands)
-		\item YTU Yıldız Technopark Entrepreneurship and Incubation Center (YTU Startup House) (Yıldız Technical University, Turkey)
-	\end{itemize}
 	These examples illustrate the continued global reach and diverse institutional affiliations of leading UBIs across different reporting periods.
+
+	\section{Vietnam UBIs Quantitative Data}
+	The Vietnamese landscape for university-based incubation programs (UBIs) and the broader startup ecosystem has undergone substantial development, marked by increasing governmental support, robust private sector engagement, and a growing entrepreneurial culture.
+
+	\subsection{Evolution of the Startup Ecosystem and University Engagement}
+	The foundational elements of Vietnam's startup ecosystem were solidified in the mid-2010s. A pivotal initiative was the Prime Minister's approval of the "National Program to Support Innovative Startup Ecosystem in Vietnam by the Year 2025," coupled with the designation of 2016 as the "Nation Year of Startup" \cite{dinh2017promoting}. This period witnessed a notable rise in entrepreneurial awareness, with the Vietnam Startup Index Report 2015/2016 indicating that the proportion of adults cognizant of business opportunities increased from 36.8\% in 2013 to 56.8\% in 2015, positioning Vietnam 9th among 60 surveyed countries \cite{dinh2017promoting}. Early university involvement manifested through the establishment of spin-off companies and business incubators. By September 2016, Vietnam operated 12 business incubators, evenly distributed between the northern (5) and southern (7) regions \cite{dinh2017promoting}. Pioneering university spin-offs, such as BK-Holdings (Hanoi University of Science and Technology) and TOPICA Education Technology Association, demonstrated the early potential of academic entrepreneurship \cite{dinh2017promoting}. These university-led ventures were crucial in fostering university-enterprise linkages and technology transfer, as exemplified by Vietnam National University's (VNU) Natural Sciences Company, which executed over 90 technology transfer contracts from 2011 to 2015 \cite{dinh2017promoting}. An internal survey in 2015 revealed that over 80\% of IT students in Ho Chi Minh City expressed a desire to initiate businesses during their studies, signaling a strong entrepreneurial inclination within the student body \cite{dinh2017promoting}.
+
+	Post-2017, the ecosystem experienced accelerated growth. The government's continued commitment is evident in initiatives like Project 844, launched in 2016 and expanded in 2021 (Decision No. 188/QD-TTg), which has extended its support to 60 provinces by 2024, with 40 localities developing financial mechanisms for startups \cite{nssc2024project}. Furthermore, Decree No. 109/2022/ND-CP specifically targets the fostering of the innovative startup ecosystem within universities \cite{nssc2024project}. The establishment of the National Innovation Center (NIC) in 2023 at Hoa Lac Hi-Tech Park serves as a central hub for promoting sustainable growth driven by science, technology, and innovation \cite{vietnam_innovation_report_2024}. By the end of 2024, Vietnam's startup ecosystem comprised over \textbf{4,000 startups}, including two unicorn companies and eleven valued over \$100 million.
+
+	\subsection{Investment Trends and Global Standing}
+	Vietnam's position in the global innovation landscape has steadily strengthened. In the Global Innovation Index 2023, Vietnam ascended to \textbf{46th position} out of 132 countries, demonstrating consistent improvement \cite{vietnam_innovation_report_2024}. The country is also recognized among the top 7 middle-income economies with the most significant innovation progress over the past decade \cite{vietnam_innovation_report_2024}. According to StartupBlink's Global Startup Ecosystem Index 2024, Vietnam rose to \textbf{56th globally} (from 58th in 2023), securing 5th place in Southeast Asia and 12th in Asia-Pacific \cite{startupblink2024, vietnamnews2024pm}.
+
+	The venture capital landscape, while subject to global fluctuations, exhibited resilience in Vietnam. In 2023, Vietnamese startups attracted a total investment of \textbf{\$529 million} \cite{vietnam_innovation_report_2024}. This represented a 17\% decline compared to the previous year, yet it was notably milder than the 35\% global venture capital investment contraction, indicating the market's intrinsic strength \cite{vietnam_innovation_report_2024}. Vietnam maintained its third position in Southeast Asia for the volume of investment deals and successfully reclaimed the third position in total investment value within the region, trailing only Singapore and Indonesia \cite{vietnam_innovation_report_2024}.
+
+	Sectoral investment patterns in 2023 revealed significant shifts:
+	\begin{itemize}
+	\item The Healthcare sector experienced a record-high investment, surging by 391\% year-over-year to become the leading invested sector \cite{vietnam_innovation_report_2024}.
+	\item The Education sector also reached its highest-ever investment volume, increasing by 107\% year-over-year \cite{vietnam_innovation_report_2024}.
+	\end{itemize}
+	Approximately 100 funds contributed capital to Vietnamese startups in 2023, with Singaporean investors being the most active, closely followed by domestic Vietnamese investors \cite{vietnam_innovation_report_2024}. The exit market for startups is also evolving positively, marked by growth in the public market, refined stock market regulatory mechanisms, and an increasing role of local corporations in mergers and acquisitions \cite{vietnam_innovation_report_2024}.
+
+	Despite remarkable progress, the Vietnamese university startup ecosystem continues to face challenges. These include a persistent gap between theoretical instruction and practical application in training programs, which limits hands-on experience \cite{nhandan2025startup}. Universities frequently contend with insufficient financial resources, inadequate infrastructure, and a dearth of experimental spaces and early-stage investment funds \cite{nhandan2025startup}. Furthermore, attracting international resources and securing foreign investment remains challenging, partly due to complexities in corporate restructuring requirements (e.g., establishing an offshore parent company) and regulatory ambiguities \cite{bssc2025wave, nssc2024challenges}. Startups also contend with a scarcity of suitable strategic advisors and disparities in resource access between urban and rural areas \cite{ueh2024vc}. The Prime Minister has emphasized the need for a stronger ecosystem, urging enhanced policies, particularly in finance and intellectual property, and promoting public-private partnerships to establish student startup support funds \cite{vietnamnews2025pm}.
 	
-	\subsection{Vietnam Data}
-	\section{Qualitative Data Collection}
-	\subsection{Interview}
 \end{document}
