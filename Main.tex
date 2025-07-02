@@ -41,7 +41,6 @@
 \usepackage{glossary-superragged}
 \setglossarystyle{superraggedheaderborder}
 \usepackage{setspace}
-\usepackage{parskip}
 
 % package content table
 \usepackage{tocbasic}
@@ -53,7 +52,7 @@
 
 % Add packages for flowchart
 \usepackage{tikz}
-\usetikzlibrary{shapes,arrows,positioning,calc,arrows.meta}
+\usetikzlibrary{shapes,arrows,positioning,calc,arrows.meta,shapes.geometric}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
 \usepackage{csquotes}
@@ -90,6 +89,7 @@
 \definecolor{purple}{rgb}{0.38,0.18,0.81}
 \definecolor{lightblue}{rgb}{0.1,0.57,0.7}
 \definecolor{lightred}{rgb}{1,0.4,0.5}
+\definecolor{vncolor}{RGB}{186, 210, 143} 
 \usepackage{upquote}
 
 % ===================================================
@@ -292,14 +292,13 @@
 
 \glsaddall
 % \renewcommand*{\glossaryname}{Danh sách thuật ngữ}
-\renewcommand*{\acronymname}{LIST OF ABBREVIATIONS}
-\renewcommand*{\entryname}{Abriviation}
+\renewcommand*{\entryname}{Abbreviation}
 \renewcommand*{\descriptionname}{Full Expression}
-% \printnoidxglossaries
-% \phantomsection\addcontentsline{toc}{section}{\numberline {} DANH MỤC THUẬT NGỮ VÀ TỪ VIẾT TẮT}
-\subfile{Chapter/0_5_Danh_muc_viet_tat.tex}
+\chapter*{LIST OF ABBREVIATIONS}
+\phantomsection\addcontentsline{toc}{chapter}{LIST OF ABBREVIATIONS}
+\printnoidxglossary[type=\acronymtype]
+\newpage
 
-% \newpage
 % \subfile{Chapter/0_6_Thuat_ngu.tex}
 % ===================================================
 
