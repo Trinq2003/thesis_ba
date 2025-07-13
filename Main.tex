@@ -1,4 +1,4 @@
-\documentclass[a4paper,13pt,twoside]{extreport}
+\documentclass[a4paper,12pt,twoside]{extreport}
 \usepackage[utf8]{vietnam}
 \usepackage[top=2cm, bottom=2cm, left=3.5cm, right=2.5cm]{geometry}
 
@@ -7,7 +7,7 @@
 \usepackage{indentfirst} % Thụt đầu dòng ở dòng đầu tiên trong đoạn
 \usepackage{amsthm} % Cho phép thêm các môi trường định nghĩa
 \usepackage{latexsym} % Các kí hiệu toán học
-\usepackage{amsmath} % Hỗ trợ một số biểu thức toán học
+\usepackage{amsmath} % Hỗ trợ một số biểu thức      toán học
 \DeclareMathOperator*{\argmax}{arg\,max}
 \usepackage{amssymb} % Bổ sung thêm kí hiệu về toán học
 \usepackage{amsbsy} % Hỗ trợ các kí hiệu in đậm
@@ -23,6 +23,7 @@
 \usepackage[ruled,vlined]{algorithm2e}  % Hỗ trợ viết các giải thuật
 \usepackage{capt-of} % Cho phép sử dụng caption lớn đối với landscape page
 \usepackage{multirow} % Merge cells
+\usepackage{longtable} % For long tables that span multiple pages
 \usepackage{fancyhdr} % Cho phép tùy biến header và footer
 % \usepackage[natbib,backend=biber,style=ieee]{biblatex} % Giúp chèn tài liệu tham khảo
 \usepackage{appendix}
@@ -89,13 +90,13 @@
 \definecolor{purple}{rgb}{0.38,0.18,0.81}
 \definecolor{lightblue}{rgb}{0.1,0.57,0.7}
 \definecolor{lightred}{rgb}{1,0.4,0.5}
-\definecolor{vncolor}{RGB}{186, 210, 143} 
+\definecolor{vncolor}{RGB}{186, 210, 143}
 \usepackage{upquote}
 
 % ===================================================
 
-\renewcommand{\bibname}{reference} 
-\usepackage[backend=bibtex,style=ieee]{biblatex}  %backend=biber is 'better'
+\renewcommand{\bibname}{references} 
+\usepackage[style=apa,backend=biber]{biblatex}  %backend=biber is 'better'
 
 \renewcommand\appendixname{APPENDIX}
 \renewcommand\appendixpagename{APPENDIX}
@@ -207,12 +208,22 @@
 %Lùi đầu dòng
 \setlength{\parindent}{15pt}
 
-
+\usepackage{anyfontsize}
+% \usepackage{lmodern}
+\renewcommand\normalsize{\fontsize{13}{15.6}\selectfont}
+\AtBeginDocument{\normalsize}
 
 % =========================== BODY ===============
 \begin{document}
 % \newgeometry{top=2cm, bottom=2cm, left=2cm, right=2cm}
 \subfile{cover} % Phần bìa
+% Insert forms after cover
+\newpage
+\subfile{Chapter/thesis_statement_form}
+\newpage
+\subfile{Chapter/advisor_assessment_form}
+\newpage
+\subfile{Chapter/reviewer_assessment_form}
 % \restoregeometry
 
 % ===================================================
@@ -368,10 +379,11 @@
 {{\bfseries{\scshape} \thecontentslabel.\ }} % numbered format
 {}         % unnumbered format
 {\titlerule*[0.3pc]{.}\contentspage}         % filler-page-format, e.g dots
-% \chapter{DETAILED IMPLEMENTATION OF AGENTIC WORKFLOW FRAMEWORK}
-% \label{appendix:a_agentic_workflow_framework}
-% \subfile{Chapter/Appendix/Appendix_A}
-% \newpage
+
+\chapter{SCORING FRAMEWORK OF WORLD BENCHMARK STUDY FOR UNIVERSITY-BASED INCUBATION PROGRAMS}
+\label{appendix:a_scoring_framework}
+\subfile{Chapter/Appendix/Appendix_A}
+\newpage
 
 % \chapter{DETAILED IMPLEMENTATION OF OPENEDX BACKEND}
 % \label{appendix:b_openedx_backend}
